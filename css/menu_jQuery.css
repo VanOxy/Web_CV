@@ -1,0 +1,45 @@
+
+nav{
+	background-color: black;
+	width : 800px;	
+	height: 50px;
+	margin: auto;
+	position: relative;
+}
+
+div#bulle{
+	background-color : orange;
+	opacity: 0.7;
+	width : 170px;
+	height: 60px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+ul#ul_b{
+	width: 800px;
+	height: 50px;
+	padding: 0px;
+	list-style: none;		/* pour enlever les puces de la liste */
+}
+
+li.bulle{
+	text-align: center;
+	width: 160px;
+	height: 50px;
+	float: left;
+	position: relative;
+}
+
+a.a_b{
+	text-decoration: none;
+	width: 160px;
+	height: 50px;
+	color: #f8f8f8;
+	padding-top: 13px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;		/* permet de mettre le texte au dessus */
+}

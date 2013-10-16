@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Morpion </title>	
+</head>
+<body onload="init()">
+<h1 align=center>Le Morpion</h1>
+	<table id="morpion" border=10 align=center>
+		<tr>
+			<td><img src="img/morpion/null.png" id="11" onclick="play(this,11);">
+			<td><img src="img/morpion/null.png" id="12" onclick="play(this,12);">
+			<td><img src="img/morpion/null.png" id="13" onclick="play(this,13);">
+		<tr>
+			<td><img src="img/morpion/null.png" id="21" onclick="play(this,21);">
+			<td><img src="img/morpion/null.png" id="22" onclick="play(this,22);">
+			<td><img src="img/morpion/null.png" id="23" onclick="play(this,23);">
+		<tr>
+			<td><img src="img/morpion/null.png" id="31" onclick="play(this,31);">
+			<td><img src="img/morpion/null.png" id="32" onclick="play(this,32);">
+			<td><img src="img/morpion/null.png" id="33" onclick="play(this,33);">
+	</table>
+	<input type="button" value="Rejouer!" onclick="reinit()">
+
+<script>
+var player1 = 1; 
+var player2 = 2;
+var isPlayer1 = true;
+var tours = 9;
+
+//les "main" tabs
+var table = new Array(3);
+var permission = new Array(3);
+
+function init(){
+	//les tab's en mousse
+	t1 = new Array(3);
+	t2 = new Array(3);
+	t3 = new Array(3);
+	table[0] = t1;
+	table[1] = t2;
+	table[2] = t3;
+	p1 = new Array(3);
+	p2 = new Array(3);
+	p3 = new Array(3);
+	permission[0] = p1;
+	permission[1] = p2;
+	permission[2] = p3;
+	//remplir les tableaux
+	remplir_permissions();
+	remplir_table();
+}
+function remplir_permissions(){
+	for (i = 0; i<3;i++){
+		for(j=0;j<3;j++){
+			permission[i][j] = true;
+		}
+	}
+}
+function remplir_table(){
+	for (i = 0; i<3;i++){
+		for(j=0;j<3;j++){
+			table[i][j] = 0;
+		}
+	}
+}
+//comment avoir l'id d'element rien que en ayant l'element en paramntre
+function play(img, id){
+	row = Math.floor(id / 10) - 1;
+	col = id % 10 - 1;
+	if(permission[row][col]){ // si la case est permie de jouer
+		tours--;
+		permission[row][col] = false; // refuser permission pour la case joué
+		if(isPlayer1){	// si le joueur 1
+			img.src = "img/morpion/x.png";
+			table[row][col] = player1;
+			check_win(player1);
+		}else{			// sinon
+			img.src = "img/morpion/o.png";
+			table[row][col] = player2;
+			check_win(player2);
+		}
+		isPlayer1 = !isPlayer1;
+	}
+}
+function check_win(player){
+	if ((table[0][0] == player && table[0][1] == player && table[0][2] == player) || 
+		(table[1][0] == player && table[1][1] == player && table[1][2] == player) ||
+		(table[2][0] == player && table[2][1] == player && table[2][2] == player) ||
+		(table[0][0] == player && table[1][0] == player && table[2][0] == player) ||
+		(table[0][1] == player && table[1][1] == player && table[2][1] == player) ||
+		(table[0][2] == player && table[1][2] == player && table[2][2] == player) ||
+		(table[0][0] == player && table[1][1] == player && table[2][2] == player) ||
+		(table[2][0] == player && table[1][1] == player && table[0][2] == player))
+		{	
+			for (i = 0; i<3; i++){ // set tt les cases injouables
+				for(j=0; j<3;j++){
+					permission[i][j] = false;
+				}				
+			}
+			if(player == player1)
+				alert("Le joueur 1 a gagné");
+			else
+				alert("Le joueur 2 a gagné");
+	}else if(tours == 0){
+	alert("La partie nulle!!!");
+	}	
+}
+function reinit(){
+	// on remet les imgages
+	for (i = 1; i<4;i++){
+		for(j=1;j<4;j++){
+			img=document.getElementById(i+ "" + j);
+			img.src = "img/morpion/null.png";
+		}
+	}
+	// on remplit de nouveau les tables
+	remplir_permissions();
+	remplir_table();
+	//remet le compteur de tours
+	tours = 9;
+}
+</script>
+
+</body>
+</html>

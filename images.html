@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Okulichev Ivan Portfolio Web"/>
+	<meta name="keywords" content="portfolio,web,okulichev,morpion,jQurey,css,html,java,c#,cv,&eacute;tudiant,stagiaire,bac"/>
+	<meta name="geo.placename" content="Mons, Hainaut">
+	<meta name="geo.region" content="BE-WHT">
+	<title> Images </title>
+	<link href="img/logo/favicon.ico" type="image/icon" rel="shortcut icon" />
+	<link rel="stylesheet" href="css/footer.css" type="text/css" >
+	<link rel="stylesheet" href="css/main.css" type="text/css" >
+	<script type="text/javascript" src="scripts/jquery.js"> </script>
+	<script type="text/javascript" src="scripts/main_page.js"> </script>
+</head>
+<body>
+	<table align="center">
+		<tr> 
+			<!-- header -->
+			<td height="150px" width="30%">
+				<img id="logo" src="img/logo/4.png" width="175">
+			</td>
+			<td height="150px" width="70%">
+				<img id="head" src="img/logo/head_big.png" height="90px">
+			</td>
+		</tr>
+		<tr id="body">
+			<td colspan=2>
+				<div id="box">
+					<p>
+					L'image change lorsqu'on clique dessus.
+					</p>
+				</div>
+				<div align="center">
+					<a href="#" onClick="click_a();">
+						<img src="img/images/poker.png" name="image" height="202px" id="img">
+					</a>
+					<script>
+						var flag = true;
+						function click_a(){
+							if (flag){
+								document.images["image"].src="img/images/argh.png";
+								flag = !flag;
+							}else{
+								document.images["image"].src="img/images/poker.png";
+								flag = !flag;
+							}
+						}
+					</script>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<!-- le footer -->
+	<div id="footer">
+		<ul>
+			<li>
+				<a href="index.html">
+					<!-- <img src="img/logo/4.png"> -->
+					<img src="img/logo/home2.png"> Home
+				</a>
+			</li>	
+			<li>
+				<a href="#">HTML & CSS</a>
+				<ul class="dropup">
+					<li>
+						<a href="images.html">Images</a>
+					</li>
+					<li>
+						<a href="morpion.html" target="_blank">Jeu de morpion</a>
+					</li>
+					<li>
+						<a href="menu.html">Menu jQuery</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">C#</a>
+				<ul class="dropup">
+					<li>
+						<a href="coming.html">bientôt...</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Java</a>
+				<ul class="dropup">
+					<li>
+						<a href="coming.html">bientôt...</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="cv.html">C.V.</a>
+			</li>
+		</ul>
+		<div id="contact">
+			<span>Trouvez - moi sur</span>
+			<a href="https://www.facebook.com/okulichev.ivan?ref=tn_tnmn" target="_blank">
+				<img src="img/logo/fb2.png" class="contact" id="fb"></a>
+			<a href="http://vk.com/megatipok" target="_blank">
+				<img src="img/logo/vk1.png" class="contact" id="vk"></a>
+		</div>
+	</div>
+</body>
+</html>

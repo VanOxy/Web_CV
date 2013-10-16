@@ -1,0 +1,116 @@
+/*program the design of footer*/
+#footer{
+	position: fixed;
+	bottom:0px;
+	margin: 0px;
+	padding: 0px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 45px;
+	/*Верхняя линия-тень*/
+	border-top: 1px solid rgba(0,0,0,0.2);
+	/*Полу-прозрачный чёрный фон фута*/
+	background: rgba(0,0,0,0.25);
+	/*Настройка оттенков фута */
+	box-shadow: 
+				/*Верхняя белая линия в 1пикс. Первый 0 так как значение левого бордера*/
+				inset 0 1px rgba(255,255,255,0.45), 
+				/*Вторая верхняя белая линия на след 10пикс - менее прозрачная*/
+				inset 0 10px rgba(255,255,255,0.25),
+				/*Создаёт эффект глянца(светлый фон)*/
+				inset 0 10px /*начало_в*/ 20px /*ширина*/ rgba(255,255,255,0.6),
+				/*Создаёт эффект глянца(тёмный фон)*/
+				inset 0 -15px /*начало*/ 30px /*ширина*/ rgba(0,0,0,0.8);
+}
+
+/*program the design of inner ellements of footer*/
+#footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#footer li {
+	float: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-right: 1px solid rgba(0,0,0,0.4);
+}
+
+#footer li a{
+	padding: 0 0;
+	padding-top: 2px;
+	text-decoration: none;
+	line-height: 55px;
+	font-size: 14px;
+	color: #badbe9;
+	text-shadow: 1px 1px 1px #397297;
+}
+
+#footer li a img{
+	float: left;
+	margin-top: 7px;
+	height: 35px;
+	padding-right: 10px;
+}
+
+#footer li:hover {
+	background: rgba(0,0,0,0.3);
+}
+
+#footer li a:hover{
+	color: white;
+}
+
+/* program the contact menu */
+#contact{
+	position: fixed;
+	right: 0px;
+	padding-left: 10px;
+	padding-right: 15px;
+	border-left: 1px solid rgba(0,0,0,0.4);
+}
+
+#contact span{
+	float:left;
+	padding-right : 15px;
+	padding-top: 15px;
+	text-decoration: none;
+	font-size: 18px;
+	color: #badbe9;
+	text-shadow: 1px 1px 1px #397297;
+}
+
+.contact{
+	border: 0px;
+	height: 35px;
+	margin-top: 7px;
+	height: 35px;
+	padding-right: 10px;
+}
+
+/*-----------------Program the Pop-Up Menu-------------------*/
+#footer li ul.dropup{
+	list-style: none;
+	display: none;
+}
+
+#footer li:hover ul.dropup{
+	display: block;
+	position: absolute;
+	margin: 0 0 0 -21px;
+	bottom: 45px; 
+	border: 1px solid #111111;
+	border-bottom: none;
+	background: rgba(0,0,0,0.5);
+	/*top-left(1) top-right(2) bot-right(3) etc*/
+	border-radius: 7px 7px 0px 0px;
+}
+
+#footer li:hover ul li{
+	float: none;
+	background: none;
+	border: none;
+	border-bottom: 1px solid black;
+}
